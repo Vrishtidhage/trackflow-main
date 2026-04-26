@@ -1,15 +1,18 @@
 services:
   - type: web
     name: trackflow-api
-    env: python
+    runtime: python
     rootDir: server
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: PYTHONPATH=/opt/render/project/src/server uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: trackflow-db
+          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: ADMIN_EMAIL
@@ -19,14 +22,22 @@ services:
 
   - type: web
     name: trackflow-client
-    env: static
+    runtime: node
     rootDir: client
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
     envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
       - key: VITE_API_URL
-        sync: false
-    routes:
-      - type: rewrite
-        source: "/*"
-        destination: /index.html
+        fromService:
+          type: web
+          name: trackflow-api
+          envVarKey: RENDER_EXTERNAL_URL
+
+databases:
+  - name: trackflow-db
+    plan: free
+    databaseName: trackflow
+    user: trackflow

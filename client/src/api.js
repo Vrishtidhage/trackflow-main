@@ -4,8 +4,7 @@ const LOCAL_API_URL = "http://127.0.0.1:8000";
 const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
 
 if (import.meta.env.PROD && !configuredApiUrl) {
-  // Vercel cannot reach your local backend. Set VITE_API_URL in Vercel
-  // to the deployed FastAPI backend URL before production deployment.
+  // Render injects this from the backend service in render.yaml.
   console.warn("VITE_API_URL is not set. API requests will use the local backend URL.");
 }
 

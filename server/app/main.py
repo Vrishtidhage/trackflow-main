@@ -44,7 +44,7 @@ finally:
 # ✅ CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"^(http://(localhost|127\.0\.0\.1):\d+|https://[a-zA-Z0-9-]+\.vercel\.app|https://[a-zA-Z0-9-]+\.onrender\.com)$",
+    allow_origin_regex=r"^(http://(localhost|127\.0\.0\.1):\d+|https://[a-zA-Z0-9-]+\.onrender\.com)$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

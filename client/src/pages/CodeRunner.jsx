@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BASE_URL from "../api";
 
 export default function CodeRunner() {
   const [code, setCode] = useState("");
@@ -11,7 +12,7 @@ export default function CodeRunner() {
     setResult(null);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/run-code", {
+      const res = await fetch(`${BASE_URL}/api/run-code`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
