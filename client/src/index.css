@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #f4f7fb;
+  color: #101828;
+  font-family: "Inter", Arial, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e5e7eb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #6b7280 !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  color: #111827;
+}

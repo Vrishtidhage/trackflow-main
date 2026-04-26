@@ -1,0 +1,16 @@
+.env
+.DS_Store
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# JavaScript
+node_modules/
+dist/
+
+# Local runtime output
+*.log
+*.db
